@@ -98,8 +98,9 @@ report but never writes state, pushes commits, or sends Telegram messages.
 
 ## 5. Enable scheduling within your budget
 
-Automatic checks are scheduled every five minutes from **10:00 AM through
-9:55 PM Asia/Kolkata (IST)** each day. No automatic scans start from 10:00 PM
+Automatic checks are scheduled every five minutes from **10:02 AM through
+9:57 PM Asia/Kolkata (IST)** each day. The two-minute offset avoids the busiest
+top-of-hour slot; it does not guarantee prompt scheduling. No automatic scans start from 10:00 PM
 through 9:59 AM. The UTC cron expressions account for India's half-hour offset;
 a time check also skips delayed scheduled jobs that reach the scan step outside
 these hours. A scan started before 10:00 PM can finish afterward. Manual runs
@@ -137,6 +138,23 @@ monitoring runs and has a 12-minute timeout. Very brief stock windows between
 successful checks can be missed. See GitHub's official
 [billing documentation](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
 and [schedule documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+
+### Verify automatic scheduling
+
+A successful manual run verifies the scraper, secrets, and state access; it does
+not verify GitHub's cron service. In Actions, look for a run named
+`HMT Tracker | schedule | scan` and confirm it succeeds and advances the report's
+last-successful-check timestamp. Automatic monitoring remains unverified until
+an actual scheduled run completes.
+
+If no scheduled run appears, confirm that this workflow is on the default branch,
+the workflow is enabled, and repository variable `HMT_SCHEDULE_ENABLED` is exactly
+`true`. A false job condition produces a skipped job; no scheduled run at all
+means no schedule event is visible in the run history. Check GitHub's status and
+collect the workflow URL, merge time, and run history for a GitHub Support request
+if scheduling remains absent. Changing the cron is a troubleshooting experiment,
+not proof of the cause or a guarantee that GitHub will trigger it. Do not treat
+repeated manual scans as confirmation that automatic scheduling works.
 
 ## How stock and alerts work
 
