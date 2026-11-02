@@ -2,7 +2,11 @@ name: HMT Tracker
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    # GitHub cron uses UTC. IST is UTC+05:30.
+    # Every five minutes from 10:00 through 21:55 IST, daily.
+    - cron: '30-59/5 4 * * *'
+    - cron: '*/5 5-15 * * *'
+    - cron: '0-25/5 16 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -44,8 +48,18 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TRACKER_MODE: ${{ inputs.mode || 'scan' }}
+          TRACKER_EVENT: ${{ github.event_name }}
         shell: bash
         run: |
+          # Skip delayed scheduled runs that reach this step outside the window.
+          # Manual runs remain available at any time.
+          if [[ "$TRACKER_EVENT" == "schedule" ]]; then
+            IST_HOUR="$(TZ=Asia/Kolkata date +%H)"
+            if (( 10#$IST_HOUR < 10 || 10#$IST_HOUR >= 22 )); then
+              echo "Outside 10:00-22:00 IST; skipping this scheduled scan."
+              exit 0
+            fi
+          fi
           case "$TRACKER_MODE" in
             test-notification) python tracker.py test-notification ;;
             dry-run) python tracker.py scan --git-state --dry-run ;;
