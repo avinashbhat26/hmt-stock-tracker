@@ -1,12 +1,14 @@
 name: HMT Tracker
+run-name: HMT Tracker | ${{ github.event_name }} | ${{ inputs.mode || 'scan' }}
 
 on:
   schedule:
     # GitHub cron uses UTC. IST is UTC+05:30.
-    # Every five minutes from 10:00 through 21:55 IST, daily.
-    - cron: '30-59/5 4 * * *'
-    - cron: '*/5 5-15 * * *'
-    - cron: '0-25/5 16 * * *'
+    # Every five minutes from 10:02 through 21:57 IST, daily.
+    # Offset by two minutes to avoid the busiest top-of-hour schedule slot.
+    - cron: '32-57/5 4 * * *'
+    - cron: '2-57/5 5-15 * * *'
+    - cron: '2-27/5 16 * * *'
   workflow_dispatch:
     inputs:
       mode:
