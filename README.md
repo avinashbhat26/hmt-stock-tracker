@@ -98,12 +98,19 @@ report but never writes state, pushes commits, or sends Telegram messages.
 
 ## 5. Enable scheduling within your budget
 
-The workflow contains the requested five-minute cron, but scheduled jobs are
+Automatic checks are scheduled every five minutes from **10:00 AM through
+9:55 PM Asia/Kolkata (IST)** each day. No automatic scans start from 10:00 PM
+through 9:59 AM. The UTC cron expressions account for India's half-hour offset;
+a time check also skips delayed scheduled jobs that reach the scan step outside
+these hours. A scan started before 10:00 PM can finish afterward. Manual runs
+remain available at any time.
+
+The workflow contains this five-minute daytime schedule, but scheduled jobs are
 **disabled until you explicitly opt in**. Manual runs work without this opt-in.
 
-Your repository is private. GitHub-hosted runners in private repositories consume
+GitHub-hosted runners in private repositories consume
 included usage and can incur charges beyond it. Five-minute scheduling requests
-about **8,640 runs per 30 days**, before delays, and this full scan took about
+about **4,320 daytime runs per 30 days**, before delays, and this full scan took about
 2 minutes 22 seconds locally. Do not assume this fits GitHub Free's allowance.
 Review your account's current included usage and configure a budget that stops
 additional paid usage before enabling it. This application cannot enforce your
