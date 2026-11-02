@@ -34,8 +34,9 @@ Official source: <https://www.hmtwatches.in/mens>.
 
 ## Automated verification
 
-53 tests passed locally with Python 3.10.11 (the installed interpreter).
-The code targets Python 3.12, and the included GitHub CI runs that version.
+53 tests passed locally with Python 3.10.11 (the installed interpreter) and in
+GitHub Actions on Python 3.12. The Python 3.12 CI job succeeded on the implementation
+commit: <https://github.com/avinashbhat26/hmt-stock-tracker/actions/runs/41411899967>.
 Git persistence was exercised against real local bare remotes, including reloads,
 competing writers, corrupt state, and missing state. Telegram responses were
 mocked: successful delivery, rejection/rate limit, ambiguous network failure,
@@ -43,7 +44,6 @@ length limits, partial batch delivery, retry and deduplication.
 
 ## Validation still required before relying on alerts
 
-- Run Python 3.12 CI in GitHub and confirm its result.
 - Add repository Telegram secrets and run `test-notification`; no actual Telegram
   credentials were available or requested in chat, and no message was sent.
 - Run the workflow's first real scan and confirm `tracker-state` can be created
