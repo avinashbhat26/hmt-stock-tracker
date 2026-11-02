@@ -1,3 +1,4 @@
+## Existing repository Python ignores
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -218,3 +219,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+## HMT tracker runtime files
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.env.*
+.data/
+stock-report.md
+inspection/
+inspection-mens.html
+upload-bundle.json
+*.tmp

@@ -1,0 +1,25 @@
+catalogue_url: https://www.hmtwatches.in/mens
+request_timeout: 25
+request_delay: 0.5
+retries: 2
+max_pages: 100
+minimum_products: 20
+minimum_catalogue_ratio: 0.85
+removed_after_scans: 2
+failure_alert_after: 3
+priority:
+  highest:
+    - '\bautomatic\b|self[\s-]*winding'
+    - '\bstellar\b.*\bauto'
+    - '\bkoh?inoor\b'
+    - '\bsangam\b'
+    - '\bgand[ae]ber[ua]nda\b'
+    - '\bkannadiga\b'
+  additional:
+    - '\bpragati\b'
+    - '\btaree?q\b'
+    - '\bnass\b'
+    - 'mechanical|hand[\s-]*wound'
+    - 'limited|special edition|anniversary|commemorative'
+automatic_patterns:
+  - '\bautomatic\b|self[\s-]*winding'

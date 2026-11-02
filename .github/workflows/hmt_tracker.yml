@@ -1,0 +1,61 @@
+name: HMT Tracker
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Choose scan, read-only scan, or Telegram test'
+        type: choice
+        default: dry-run
+        options:
+          - dry-run
+          - scan
+          - test-notification
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hmt-tracker-state
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    # Private Actions usage is limited. Explicitly opt in after setup/budget review.
+    if: github.event_name == 'workflow_dispatch' || vars.HMT_SCHEDULE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install runtime dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Run tracker
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TRACKER_MODE: ${{ inputs.mode || 'scan' }}
+        shell: bash
+        run: |
+          case "$TRACKER_MODE" in
+            test-notification) python tracker.py test-notification ;;
+            dry-run) python tracker.py scan --git-state --dry-run ;;
+            scan) python tracker.py scan --git-state ;;
+            *) exit 2 ;;
+          esac
+      - name: Show stock report
+        if: always()
+        shell: bash
+        run: |
+          if [ -f stock-report.md ]; then
+            cat stock-report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
