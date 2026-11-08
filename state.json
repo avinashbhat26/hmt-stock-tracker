@@ -1251,101 +1251,13 @@
       "removed": false
     }
   },
-  "pending": [
-    {
-      "id": "1215:0:new launch",
-      "type": "new launch",
-      "time": "2026-11-08T17:00:42+05:30",
-      "priority": "highest",
-      "automatic": false,
-      "product": {
-        "id": "1215",
-        "name": "HMT Men's Gandaberunda JGGL 01",
-        "url": "https://www.hmtwatches.in/product_overview?id=eyJpdiI6IlhuaHdrMVpLQ0N1R2dES05UOUlMTHc9PSIsInZhbHVlIjoiTWJ1SWRYekFpV3RKZ3Urb3Z3a3ZBUT09IiwibWFjIjoiNDY0OWI4NTgyNmZjNzczN2JiYmE1ZWFjNWFjOWJmZjcxYjQ5MzBkMzUxMGFkNWMzOGY1MmUxNmUyOWExMmEwOSIsInRhZyI6IiJ9",
-        "price": "2599",
-        "status": "out_of_stock",
-        "sku": "JGGL 01GB",
-        "movement": "Quartz",
-        "first_seen": "2026-11-08T17:00:42+05:30",
-        "last_seen": "2026-11-08T17:00:42+05:30",
-        "last_checked": "2026-11-08T17:00:42+05:30",
-        "confirmed": "out_of_stock",
-        "transition": 0,
-        "missing_scans": 0,
-        "removed": false
-      }
-    },
-    {
-      "id": "1171:0:new launch",
-      "type": "new launch",
-      "time": "2026-11-08T17:00:42+05:30",
-      "priority": "highest",
-      "automatic": false,
-      "product": {
-        "id": "1171",
-        "name": "HMT Kohinoor Quartz B1 Dark Blue Sunray",
-        "url": "https://www.hmtwatches.in/product_overview?id=eyJpdiI6IkpzMFFFOG84emNwbFBUc3NuRjVscUE9PSIsInZhbHVlIjoiSHVzVThNdDRQZ0pnYktMVDNSUTdrZz09IiwibWFjIjoiNzEyZjYyNTc5MWVkNzBjNzkyM2EyOTNjYmRlZTdhYWJlMjVkZThmZWIwNDBmOTk2YTY4MTY0ZDFhN2RkYWMxNSIsInRhZyI6IiJ9",
-        "price": "2899",
-        "status": "out_of_stock",
-        "sku": "Kohinoor Quartz",
-        "movement": "Quartz",
-        "first_seen": "2026-11-08T17:00:42+05:30",
-        "last_seen": "2026-11-08T17:00:42+05:30",
-        "last_checked": "2026-11-08T17:00:42+05:30",
-        "confirmed": "out_of_stock",
-        "transition": 0,
-        "missing_scans": 0,
-        "removed": false
-      }
-    },
-    {
-      "id": "1112:0:new launch",
-      "type": "new launch",
-      "time": "2026-11-08T17:00:42+05:30",
-      "priority": "highest",
-      "automatic": false,
-      "product": {
-        "id": "1112",
-        "name": "HMT Kohinoor Quartz B1 Pink Sunray",
-        "url": "https://www.hmtwatches.in/product_overview?id=eyJpdiI6IlFwdmRjNmF1U2Z1Z1RFc2ovbHZnL2c9PSIsInZhbHVlIjoiRU80WStlMlJRd0pYM3Z2SjVOaWJLdz09IiwibWFjIjoiNjkyOWZkNjE4N2MxNjgxYTFhZTNlNjcwMWIzODIyNjdmMzhkYmQxZTNjOTM5MzJjNDY2MDNlMGUxMWEwY2Q0YyIsInRhZyI6IiJ9",
-        "price": "2899",
-        "status": "out_of_stock",
-        "sku": "Kohinoor Quartz",
-        "movement": "Quartz",
-        "first_seen": "2026-11-08T17:00:42+05:30",
-        "last_seen": "2026-11-08T17:00:42+05:30",
-        "last_checked": "2026-11-08T17:00:42+05:30",
-        "confirmed": "out_of_stock",
-        "transition": 0,
-        "missing_scans": 0,
-        "removed": false
-      }
-    },
-    {
-      "id": "1103:0:new launch",
-      "type": "new launch",
-      "time": "2026-11-08T17:00:42+05:30",
-      "priority": "highest",
-      "automatic": false,
-      "product": {
-        "id": "1103",
-        "name": "HMT Kohinoor Quartz B1 Grey",
-        "url": "https://www.hmtwatches.in/product_overview?id=eyJpdiI6ImNtZEI0UVNvYStqZUZYUVJwamZhd1E9PSIsInZhbHVlIjoiU0xhdlRBSEQ4dkpjeDBwOHdBZ010dz09IiwibWFjIjoiOGEzOGE1OGY4OWVjYzU4OWQ0ZDNlMmM5N2YyYzliMzE0MDVhODEyOTM4ZWJiZjk4NjkzODc5ZTI5OTZmMTVmMSIsInRhZyI6IiJ9",
-        "price": "2899",
-        "status": "out_of_stock",
-        "sku": "Kohinoor Quartz",
-        "movement": "Quartz",
-        "first_seen": "2026-11-08T17:00:42+05:30",
-        "last_seen": "2026-11-08T17:00:42+05:30",
-        "last_checked": "2026-11-08T17:00:42+05:30",
-        "confirmed": "out_of_stock",
-        "transition": 0,
-        "missing_scans": 0,
-        "removed": false
-      }
-    }
+  "pending": [],
+  "sent": [
+    "1215:0:new launch",
+    "1171:0:new launch",
+    "1112:0:new launch",
+    "1103:0:new launch"
   ],
-  "sent": [],
   "history": [
     {
       "id": "1215:0:new launch",
