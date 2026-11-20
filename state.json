@@ -1353,7 +1353,7 @@
     }
   ],
   "last_success": "2026-11-19T19:38:40+05:30",
-  "failures": 0,
+  "failures": 1,
   "failure_notified": false,
   "scan_sequence": 33
 }
