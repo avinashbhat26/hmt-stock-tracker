@@ -1251,19 +1251,13 @@
       "removed": false
     }
   },
-  "pending": [
-    {
-      "id": "failure:2026-11-21T18:28:05+05:30",
-      "type": "failure",
-      "time": "2026-11-21T18:28:05+05:30",
-      "failures": 3
-    }
-  ],
+  "pending": [],
   "sent": [
     "1215:0:new launch",
     "1171:0:new launch",
     "1112:0:new launch",
-    "1103:0:new launch"
+    "1103:0:new launch",
+    "failure:2026-11-21T18:28:05+05:30"
   ],
   "history": [
     {
