@@ -1354,7 +1354,7 @@
     }
   ],
   "last_success": "2026-11-19T19:38:40+05:30",
-  "failures": 17,
+  "failures": 18,
   "failure_notified": true,
   "scan_sequence": 33
 }
